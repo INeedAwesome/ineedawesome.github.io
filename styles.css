@@ -1,54 +1,112 @@
 @font-face {
     font-family: ubuntu;
-    src: url('ubuntu-font/Ubuntu-Regular.ttf');
+    src: url('/ubuntu-font/Ubuntu-Regular.ttf');
 }
 
 @font-face {
     font-family: hack;
-    src: url('hack-font/Hack-Regular.ttf');
+    src: url('/hack-font/Hack-Regular.ttf');
 }
 
-@media screen and (max-width: 601px) {
-    .header { 
-		top: 50%;
-		left: 50%;
-		transform: translate(-0%, -50%) scale(180%);
-	}
-	.child { 
-		top: 50%;
-		left: 50%;
-		transform: translate(-0%, 50%) scale(180%);
-	}
-}
-
-html, body {
-    width: 100%;
+body {
+    width: 99.2%;
     height:100%;
-    overflow: hidden;
+	overflow-x: hidden;
 
     background-color: #070707;
     color: #F1F1F1;
 
 }
-.container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -55%);
+/*
+* BEGIN of Navigation bar css ------------------------ BEGIN
+*/
+header {
+	display: flex;	
+	justify-content: flex-end;
+	align-items: center;
+	padding: 30px 10%;
 
+	border:2px solid #96ff62;
+	border-style: none none solid none;
+	border-radius: 10px;
+}
+
+nav ul li, header a {
 	font-family: hack;
+	font-weight: 500;
+	font-size: 0.9vw;
+	color: #EDF0F1;
+	text-decoration: none;
+}
+.name {
+	position: relative;
+	margin-right: auto;
+	font-size: 1.7vw;
+}
+.name::before {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background: #FFFFFF;
+	transition: 0.8s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+}
+.name:hover::before { width: 100%; }
+
+.nav_links { list-style: none; }
+
+.nav_links li {
+	display: inline-block;
+	padding:0px 20px;
 }
 
-.header {
-	font-size:3vw;
+.nav_links li a { position: relative; }
+
+/*
+	Animation for the link button
+*/
+.nav_links a::before {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background: #FFFFFF;
+	transition: 0.8s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+}
+.nav_links a:hover::before { width: 100%; }
+
+.contact_button {
+	cursor: pointer;
+	margin-left: 30px;
+	padding: 9px 25px;
+	background-color: #ff5050FF;
+	color:#FFFFFFFF;
+	font-size: 0.9vw;
+	border:none;
+	border-radius: 50px;
+	transition: all 0.3s ease 0s;
 }
 
-.child {
-	font-size:2.5vw;
-}
+.contact_button:link {background-color:#ff5050FF;} 	/* unvisited link */
+.contact_button:visited {background-color:#ff5050FF;}	/* visited link */
+.contact_button:hover {background-color:#ff50509F;}	/* mouse over link */
+.contact_button:active {background-color:#ff5050FF;}	/* selected link */
+
+/*
+* End of navigation bar css -------------------------- END
+*/
+
+
+/*
+* BEGIN Common for both pages ------------------------ BEGIN
+*/
 
 .copyright {
-	position: absolute;
+	position: fixed;
 	top: 100%;
 	right: 0%;
 	transform: translate(0%, -200%);
@@ -56,10 +114,65 @@ html, body {
 	font-family: ubuntu;
 	font-size:smaller;
 }
+/*
+* END Common for both pages -------------------------- END
+*/
+/*
+* BEGIN For index.html ------------------------------- BEGIN
+*/
+.containerIndex {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
 
+	font-family: hack;
+}
+.header1 {
+	font-size:3vw;
+}
+
+.header2 {
+	font-size:2.5vw;
+}
+/*
+* END For index.html --------------------------------- END
+*/
+/*
+* BEGIN For photos.html ------------------------------ BEGIN
+*/
+
+.containerPhotos {
+	width: 85%;
+	padding-top: 60px;
+	margin:auto;
+	text-align: center;
+}
+.containerPhotos img {
+	padding:25px;
+	margin:20px;
+	width: auto;
+	height: 400px;
+	background-color: #F1F1F1;
+	transition: 0.25s cubic-bezier(0.33, 0.03, 0, 1.87) 0s;
+}
+
+.containerPhotos img:hover {
+	transform: translate(-37px, -30px) rotate(-5deg) ;	
+}
+/*
+* END For photos.html -------------------------------- END
+*/
+
+/*
+* BEGIN for ulility ---------------------------------- BEGIN
+*/
 .red {
     color:#ff5050;
 }
 .green {
-    color: #99ff66;
+    color: #96ff62;
 }
+/*
+* END for ulility ------------------------------------ END
+*/
